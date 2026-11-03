@@ -1,7 +1,7 @@
 function App() {
   return (
-    <main>
-      <h1>Pedidos disponíveis</h1>
+    <main className="mx-auto max-w-5xl p-4">
+      <h1 className="text-2xl font-semibold">Pedidos disponíveis</h1>
     </main>
   )
 }
