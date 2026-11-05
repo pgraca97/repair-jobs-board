@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { CityFilter } from './components/CityFilter'
 import { EmptyState } from './components/EmptyState'
+import { JobList } from './components/JobList'
 import { JobListSkeleton } from './components/JobListSkeleton'
-import { JobTable } from './components/JobTable'
 import { useJobs } from './hooks/useJobs'
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
         <>
           <CityFilter cities={cities} value={city} onChange={setCity} />
           {visibleJobs.length > 0 ? (
-            <JobTable jobs={visibleJobs} onAccept={acceptJob} />
+            <JobList jobs={visibleJobs} onAccept={acceptJob} />
           ) : (
             // Sem pedidos em lado nenhum, a cidade deixa de interessar: mostra a mensagem geral.
             <EmptyState city={jobs.length > 0 ? city : ''} onShowAll={() => setCity('')} />
