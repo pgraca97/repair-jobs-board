@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { CityFilter } from './components/CityFilter'
 import { EmptyState } from './components/EmptyState'
+import { JobListSkeleton } from './components/JobListSkeleton'
 import { JobTable } from './components/JobTable'
 import { useJobs } from './hooks/useJobs'
 
@@ -20,9 +21,7 @@ function App() {
     <main className="mx-auto max-w-5xl p-4">
       <h1 className="mb-4 text-2xl font-semibold">Pedidos disponíveis</h1>
       {isLoading ? (
-        <p role="status" className="text-gray-600">
-          A carregar pedidos…
-        </p>
+        <JobListSkeleton />
       ) : (
         <>
           <CityFilter cities={cities} value={city} onChange={setCity} />
