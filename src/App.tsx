@@ -4,14 +4,15 @@ import { JobTable } from './components/JobTable'
 import { useJobs } from './hooks/useJobs'
 
 function App() {
-  const { jobs, isLoading } = useJobs()
+  const { jobs, isLoading, acceptJob } = useJobs()
   // String vazia significa "todas as cidades".
   const [city, setCity] = useState('')
 
   // A lista de cidades sai dos próprios dados, sem repetições e por ordem alfabética.
-  const cities = [...new Set(jobs.map((job) => job.city))].sort((a, b) =>
-    a.localeCompare(b, 'pt-PT'),
-  )
+  const cities = [...new Set(jobs.map((job) => job.city))]
+  // Mantém a cidade escolhida nas opções, mesmo depois de aceite o último pedido dela.
+  if (city && !cities.includes(city)) cities.push(city)
+  cities.sort((a, b) => a.localeCompare(b, 'pt-PT'))
   const visibleJobs = city ? jobs.filter((job) => job.city === city) : jobs
 
   return (
@@ -24,7 +25,7 @@ function App() {
       ) : (
         <>
           <CityFilter cities={cities} value={city} onChange={setCity} />
-          <JobTable jobs={visibleJobs} />
+          <JobTable jobs={visibleJobs} onAccept={acceptJob} />
         </>
       )}
     </main>

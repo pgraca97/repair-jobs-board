@@ -19,5 +19,10 @@ export function useJobs() {
     return () => clearTimeout(timeoutId)
   }, [])
 
-  return { jobs, isLoading }
+  function acceptJob(id: string) {
+    // Forma funcional: parte sempre da lista mais recente, mesmo com cliques seguidos.
+    setJobs((currentJobs) => currentJobs.filter((job) => job.id !== id))
+  }
+
+  return { jobs, isLoading, acceptJob }
 }
