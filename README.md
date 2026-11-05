@@ -1,32 +1,29 @@
-# React + TypeScript + Vite
+# Pedidos disponíveis
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Ecrã onde um profissional vê os pedidos de reparação disponíveis, filtra por cidade e aceita os que lhe interessam.
 
-Currently, two official plugins are available:
+Feito com React 19, TypeScript, Vite e Tailwind CSS. Testes com Vitest e Testing Library.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Como correr
 
-## React Compiler
+Requisitos: Node.js 22.22+ ou 24.15+ e [pnpm](https://pnpm.io/installation).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+pnpm install
+pnpm dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Outros comandos:
+
+```bash
+pnpm test run   # corre os testes uma vez (sem "run" fica a vigiar alterações)
+pnpm lint       # oxlint
+pnpm build      # verifica os tipos e gera a versão de produção em dist/
+```
+
+## Se tivesse mais tempo
+
+- Ligar a uma API (por exemplo em NestJS), com estados de erro e aceitação otimista com reversão.
+- Pedir confirmação ou permitir anular ao aceitar, com feedback visível.
+- Ordenar por data e filtrar também por serviço e por urgência.
+- Testes end-to-end com Playwright para as duas vistas responsivas, que o jsdom não cobre.
