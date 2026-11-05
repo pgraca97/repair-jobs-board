@@ -1,5 +1,7 @@
 import { formatDate, formatDuration, formatPrice, formatTime } from '../format'
 import type { JobRequest } from '../types'
+import { AcceptButton } from './AcceptButton'
+import { UrgentBadge } from './UrgentBadge'
 
 type JobTableProps = {
   jobs: JobRequest[]
@@ -28,11 +30,7 @@ export function JobTable({ jobs, onAccept }: JobTableProps) {
             <tr key={job.id}>
               <td className="px-4 py-3">
                 <span className="font-medium">{job.service}</span>
-                {job.urgent && (
-                  <span className="ml-2 rounded bg-red-100 px-2 py-0.5 text-xs font-medium text-red-800">
-                    Urgente
-                  </span>
-                )}
+                {job.urgent && <UrgentBadge />}
               </td>
               <td className="px-4 py-3">{job.city}</td>
               <td className="px-4 py-3">
@@ -44,14 +42,7 @@ export function JobTable({ jobs, onAccept }: JobTableProps) {
                 {formatPrice(job.priceCents)}
               </td>
               <td className="px-4 py-3 text-right">
-                <button
-                  type="button"
-                  onClick={() => onAccept(job.id)}
-                  aria-label={`Aceitar pedido de ${job.service} em ${job.city}`}
-                  className="rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                >
-                  Aceitar
-                </button>
+                <AcceptButton job={job} onAccept={onAccept} />
               </td>
             </tr>
           ))}
