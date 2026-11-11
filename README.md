@@ -1,6 +1,13 @@
 # Pedidos disponíveis
 
+> Exercício técnico de frontend (nov. 2026).
+
 Ecrã onde um profissional vê os pedidos de reparação disponíveis, filtra por cidade e aceita os que lhe interessam.
+
+<p align="center">
+  <img src="docs/desktop.png" alt="Lista de pedidos em tabela, com filtro por cidade" width="600">
+  <img src="docs/mobile.png" alt="Os mesmos pedidos em cartões, no telemóvel" width="220">
+</p>
 
 Feito com React 19, TypeScript, Vite e Tailwind CSS. Testes com Vitest e Testing Library.
 
