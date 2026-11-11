@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "deploy":"pnpm build && gh-pages -d dist",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
@@ -24,6 +25,7 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
+    "gh-pages": "^6.3.0",
     "jsdom": "^31.0.0",
     "oxlint": "^1.89.0",
     "tailwindcss": "^4.3.4",
