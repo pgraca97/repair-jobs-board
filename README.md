@@ -22,11 +22,9 @@ pnpm dev
 
 Outros comandos:
 
-```bash
-pnpm test run   # corre os testes uma vez (sem "run" fica a vigiar alterações)
-pnpm lint       # oxlint
-pnpm build      # verifica os tipos e gera a versão de produção em dist/
-```
+- `pnpm test run`: corre os testes uma vez (sem `run`, fica a vigiar alterações).
+- `pnpm lint`: verifica o código com o oxlint.
+- `pnpm build`: verifica os tipos e gera a versão de produção em `dist/`.
 
 ## Se tivesse mais tempo
 
